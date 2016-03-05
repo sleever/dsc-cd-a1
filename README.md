@@ -76,6 +76,20 @@ arguments: [dataframe] data
 returns: [dataframe] filtered dataframe
 ```
 
+The helper functions are used in the main createTidyDataset function in a predefined order to create the tidy dataset:
+
+```r
+createTidyDataset <- function() {
+
+	... general functionality ...
+
+	data <- joinDatasets()
+    data <- defineActivities(data)
+    data <- filterColumns(data)
+	
+}
+```
+
 ```r
 groupBySubjectIdAndActivity
 
