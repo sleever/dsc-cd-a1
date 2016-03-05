@@ -6,12 +6,12 @@ createTidyDataset <- function() {
         train_subject <- read.table(paste("data/", dataset, "/subject_", dataset, ".txt", sep = ""), header = FALSE, col.names = c("subjectId"))
         train_subject <- mutate(train_subject, rowNumber = row_number())
         
-        train_activities <- read.csv(paste("data/", dataset, "/y_", dataset, ".txt", sep = ""), header = FALSE, col.names = c("activityLabelId"))
+        train_activities <- read.table(paste("data/", dataset, "/y_", dataset, ".txt", sep = ""), header = FALSE, col.names = c("activityLabelId"))
         train_activities <- mutate(train_activities, rowNumber = row_number())
         
         metaMerge <- merge(train_subject, train_activities, by.x = "rowNumber", by.y = "rowNumber", all = TRUE)
         
-        features <- read.csv("data/features.txt", header = FALSE, sep = " ", col.names = c("columnId", "columnName"))
+        features <- read.table("data/features.txt", header = FALSE, sep = " ", col.names = c("columnId", "columnName"))
         
         train_data <- read.table(paste("data/", dataset, "/X_", dataset, ".txt", sep = ""), header = FALSE, col.names = features$columnName)
         train_data <- mutate(train_data, rowNumber = row_number())
