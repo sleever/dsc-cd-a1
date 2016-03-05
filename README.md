@@ -109,6 +109,8 @@ Remember to install the package "dplyr".
 data <- createTidyDataset()
 ```
 
+In order to get the data for step 5 in the assignment, execute the function below, this will group the dataset by subjectId and activityLabel respectively and will calculate the average over all the measurement.
+
 ```r
 grouped <- groupBySubjectIdAndActivity(data)
 ```
